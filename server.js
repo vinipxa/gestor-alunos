@@ -29,8 +29,25 @@ server.get("/alunos", async (request) => {
     const search = request.query.search;
     console.log(search);
     const alunos = await database.list(search);
-    return alunos
+    return alunos;
 })
+
+server.get('/alunos/nome/:nome', async (request) => {
+    const nome = request.params.nome;
+    const alunos = await database.searchByName(nome);
+    return alunos;
+});
+
+server.get('/alunos/:id_alunos', async (request, reply) => {
+    const id_alunos = request.params.id_alunos;
+    const aluno = await database.getById(id_alunos);
+
+    if (!aluno) {
+        return reply.status(404).send({ message: 'Aluno não encontrado' });
+    }
+
+    return aluno;
+});
 
 server.put('/alunos/:id_alunos', async (request, reply) => {
     const id_alunos = request.params.id_alunos;

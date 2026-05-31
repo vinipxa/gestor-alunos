@@ -25,6 +25,22 @@ export class DatabaseMYSQL {
         );
     }
 
+    async getById(id_aluno) {
+        const [rows] = await sql.execute(
+            'SELECT * FROM alunos WHERE id_aluno = ?',
+            [id_aluno]
+        );
+        return rows[0] || null;
+    }
+
+    async searchByName(nome) {
+        const [alunos] = await sql.execute(
+            'SELECT * FROM alunos WHERE nome LIKE ?',
+            [`%${nome}%`]
+        );
+        return alunos;
+    }
+
     async update(id_aluno, aluno) {
         const { nome, data_nasc, email, telefone } = aluno;
         await sql.execute(

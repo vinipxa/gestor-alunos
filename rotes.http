@@ -26,4 +26,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/alunos/id-do-aluno-a-ser-deletado
+DELETE http://localhost:3333/alunos/
