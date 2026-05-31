@@ -1,0 +1,29 @@
+POST http://localhost:3333/alunos
+Content-Type: application/json
+
+{
+    "nome": "Portugal",
+    "data_nasc": "2000-06-11",
+    "email": "portal@gmail.com",
+    "telefone": "111111111"
+}
+###
+
+GET http://localhost:3333/alunos
+# GET http://localhost:3333/alunos
+
+###
+
+PUT http://localhost:3333/alunos/id-do-aluno-a-ser-atualizado
+Content-Type: application/json
+
+{
+    "nome": "Mathzilla",
+    "data_nasc": "2000-01-11",
+    "email": "portinha@gmail.com",
+    "telefone": "111111112"
+}
+
+###
+
+DELETE http://localhost:3333/alunos/id-do-aluno-a-ser-deletado
